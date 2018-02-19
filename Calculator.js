@@ -15,7 +15,26 @@ class Calculator {
     }
 
     input = input.replace('\n', delimiter);
-    let parseInput = input.split(delimiter);
+
+    if(input.startsWith(delimiter)){
+      input = input.substring(delimiter.length);
+    }
+
+    let parseInput = [];
+
+    if(delimiter.length === 1){
+      parseInput = input.split(delimiter);
+    }else{
+      let errorFlag = false;
+      for(let index = 0; index < input.length; index++){
+        if(errorFlag) return new Error("delimiters are wrong");
+        if(Number.isInteger(+input[index])){
+          parseInput.push(input[index]);
+        }else{
+          if(delimiter.indexOf(input[index]) === -1) errorFlag = true;
+        }
+      }
+    }
 
     parseInput.splice(3);
 

@@ -22,6 +22,7 @@ describe("Is it password correct?", function () {
 
   it("Allow the Add method to handle new lines between numbers (instead of commas)", function () {
     expect(calculator.add('1\n2,3')).toBe(6);
+    expect(calculator.add('\n1,2,3')).toBe(6);
   });
 
   it("Support different delimiters", function () {
@@ -41,12 +42,13 @@ describe("Is it password correct?", function () {
   });
 
   it("Allow multiple delimiters", function () {
-    expect(calculator.add("//-%\\n1%-2%-3")).toBe(6);
+    expect(calculator.add("//-%\n1%-2%-3")).toBe(6);
+    expect(calculator.add("//-%\n1%-2%!3") instanceof Error).toBe(true);
   });
 
-  // it("can also handle multiple delimiters with length longer than one char", function () {
-  //   expect(calculator.add("//-%;\\n1-;2%;3")).toBe(6);
-  // });
+  it("can also handle multiple delimiters with length longer than one char", function () {
+    expect(calculator.add("//-%;\n1-;2%;3")).toBe(6);
+  });
 
 });
 
