@@ -18,9 +18,4 @@ describe("Is it password correct?", function() {
     expect(password.isValid()).toBe(true);
   });
 
-  it("Error", function() {
-    let password = new Password('1aA#a');
-    expect(password.trowEr() instanceof Error).toBe(true);
-  })
-
 });

@@ -10,14 +10,6 @@ class Password{
     let re = new RegExp('A-Z');
     return true;
   }
-
-  trowEr(){
-    try{
-      throw new Error();
-    } catch(e){
-      return e;
-    }
-  }
 }
 
 module.exports = Password;
