@@ -1,0 +1,4 @@
+/node_modules
+/spec/support
+package.json
+package-lock.json
