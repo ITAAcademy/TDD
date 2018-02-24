@@ -10,8 +10,6 @@ class Password {
     if (this.password.length > 10) this.moreTen = true; else this.moreTen = false;
     if (this.password.search(' ') != -1) this.space = true; else this.space = false;
     if (this.password.search(/[^\wа-яА-Яії]/) != -1) this.banSymbol = true; else this.banSymbol = false;
-
-    return this.empty, this.space, this.lessFive, this.moreTen, this.banSymbol;
   }
 
 }
